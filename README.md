@@ -60,18 +60,21 @@ Dude/
 
 ### Workflow Stages
 
-#### Stage 1: Initialization
-- Sets up the discrepancy detection workspace
-- Processes the target paper and code repository
-- Initializes claim analysis for both code and paper domains
-
-#### Stage 2: Negotiation
+#### Stage 1: Paper-oriented Discrepancy Detection
+- Extract research claim from paper manuscript
+- Verify paper-code consistency by searching for corrsponding code implementation
 - Runs negotiation cycles between agents
 - Resolves identified discrepancies through agent dialogue
 - Updates claim records based on negotiation outcomes
-- Continues for the configured maximum rounds (see `info.md`)
 
-#### Stage 3: Code Summary
+#### Stage 2: Code-oriented Discrepancy Detection
+- Extract research claim from code repository
+- Conduct anchor-guided filtering  using category-wise prior knowledge
+- Verify paper-code consistency by searching for corrsponding paper description
+- Conduct evidence-based filtering.
+
+
+#### Stage 3: Final Report Generation
 - Generates comprehensive analysis summaries
 - Produces final discrepancy report
 - Creates audit documentation

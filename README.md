@@ -1,16 +1,28 @@
-# Dude: A Dual-Detection Multi-Agent System for Paper-Code Discrepancy Detection
+<div align="center">
 
-## Overview
+  <img src="icon.png" alt="Dude icon" width="200">
+   <h1 align="center">Dude: A Dual-Detection Multi-Agent System </br> for Paper-Code Discrepancy Detection </h1>
 
-**Dude** is a multi-agent system designed to automatically detect discrepancies between academic papers and their corresponding code implementations. The system employs a dual-detection approach with specialized agents that work collaboratively through a negotiation-based workflow to identify inconsistencies, missing implementations, and deviations from paper specifications.
+⭐️ **Automatically Detecting Paper-Code Inconsistencies** ⭐️
 
-### Key Features
+| ✅ **Multi-LLM Platform Support** | ⏯️ **Support Task Resuming** | 🌎 **Offline & Online Compatibility** |
 
-- **Multi-Agent Architecture**: Specialized agents for different detection modes (code analysis, paper analysis)
-- **Role-Based Teams**: Each agent has specific roles (Claimer, Negotiator, Verifier)
+</div>
+
+---
+
+
+## 📝 Overview
+
+**Dude** is a multi-agent system designed to automatically detect discrepancies between academic papers and their corresponding code implementations. The system employs a dual-detection approach with specialized agents that work collaboratively through a negotiation-based workflow to identify inconsistencies, missing implementations, and deviations from paper descriptions.
+
+### ✨ Key Features
+
+- **Multi-Agent Architecture**: Specialized agents for different detection modes (code analysis, paper analysis).
+- **Role-Based Teams**: Each agent has specific roles (Claimer, Negotiator, Verifier).
 - **Multi-LLM Support**: Configurations for Claude, Deepseek, GPT, and Kimi models
-- **Orchestrated Workflow**: Structured three-stage pipeline for systematic discrepancy detection
-- **Negotiation-Based Validation**: Agents collaborate to resolve discrepancies through negotiation rounds
+- **Support resuming interrupted tasks**: Structured three-stage pipeline for systematic discrepancy detection that supports interrupted task recovery.
+- **Offline & online paper compatibility**: Handles both local papers and online papers via URL.
 
 ## Project Structure
 
@@ -36,6 +48,13 @@ Dude/
 ├── info.md                              # Configuration metadata
 ├── README.md                            # This file
 ```
+
+
+## 🔥 News
+
+- **[2026.08.28]** We split the **Paper Claimer** Agent into two specialized agents: **Paper Claimer** and **Paper Searcher**. The former extracts claims from research papers, while the latter searches for external evidence to support those claims. This change helps prevent performance degradation caused by overly long contexts in a single agent.
+- **[2026.08.28]** We split the **Code Verifier** Agent into two specialized agents: **Code Mapper** and **Code Verifier**. The former maps claims to the codespace, while the latter verifies the paper-code discrepancy. This change helps prevent performance degradation caused by overly long contexts in a single agent.
+- **[2025.08.20]** 🎉 **Dude is now open source!** The codebase includes the full implementation of the framework, configurations for mainstream agent platforms (ChatGPT, Claude Code, and OpenCode) as well as the prompts used by the system.
 
 ## How It Works
 
@@ -86,7 +105,7 @@ Dude/
 Edit `info.md` to configure:
 
 ```markdown
-paper_path = "<path to paper PDF or document>"
+paper_path = "<path or url to paper PDF>"
 code_path = "<path to code repository>"
 Maximum_round for negotiation: 2
 ```

@@ -1,9 +1,16 @@
 ---
-name: code_claimer
 description: Extracts atomic and auditable claims from a code repository and writes structured claim records in json format.
-tools: Read, Grep, Glob, Edit
-model: sonnet
-effort: high
+mode: subagent
+model: moonshot-cn/kimi-k2.6
+thinking:
+  type: enabled
+permission:
+  read: allow
+  list: allow
+  glob: allow
+  grep: allow
+  edit: ask
+  bash: ask
 ---
 
 You are a code-claim extraction agent for code-to-paper auditing.
@@ -221,3 +228,5 @@ If no valid new claims are found in the current category, the 'claims' array can
 {
   "claims": []
 }
+
+"""

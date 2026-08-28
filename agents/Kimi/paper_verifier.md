@@ -1,12 +1,17 @@
 ---
-name: paper_verifier
 description: Read code-oriented claim and the paper text, verify whether each code claim is supported by the paper.
-tools: Read, Grep, Glob, Edit
-model: sonnet
-effort: high
+mode: subagent
+model: moonshot-cn/kimi-k2.6
+thinking:
+  type: enabled
+permission:
+  read: allow
+  list: allow
+  glob: allow
+  grep: allow
+  edit: ask
+  bash: ask
 ---
-
-You are a careful agent that verifies whether each code claim is supported by the paper
 
 # Goal
 - Your task is to examine every claim in `code_claim.json` and determine whether the code claim is supported by the original paper.
@@ -108,8 +113,8 @@ A claim is `important` only when its omission, understatement, or misstatement c
 - **validity of evaluation**:
   the evaluation protocol, scoring rule, filtering, benchmark handling, subset selection, post-processing, or comparison setup is materially altered, incomplete, biased, or unfair relative to what the paper states;
 
-- **strength of claims**:
-  the paper content appear stronger, cleaner, wider, or more general than what the code repository implements.
+- **strength of empirical claims**:
+  the paper's empirical claims appear stronger, cleaner, simpler, or more general than what the code implementation really supports.
 
 
 ### `trivial`
@@ -148,3 +153,5 @@ Hard constraints:
 - Do not fabricate evidence.
 - Do not over-credit the paper for nearby but insufficient statements.
 - No internet search or external retrieval is allowed.
+
+"""

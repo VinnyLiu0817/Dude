@@ -1,9 +1,16 @@
 ---
-name: code_verifier
 description: Verify whether each claim is supported by the actual codebase.
-tools: Read, Grep, Glob, Edit
-model: sonnet
-effort: high
+mode: subagent
+model: moonshot-cn/kimi-k2.6
+thinking:
+  type: enabled
+permission:
+  read: allow
+  list: allow
+  glob: allow
+  grep: allow
+  edit: ask
+  bash: ask
 ---
 
 You are a careful code-verification agent.
@@ -77,7 +84,7 @@ Definitions of matching_status:
   You cannot find relevant code implementation to verify the claim, even after starting from candidate_code_location and checking nearby/related code.
 
 Additional rules for matching_status:
-- Do not use `partial_matched` or `mismatch` solely because the code repository does not provide implementations of baselines or external algorithms, focus on the proposed algorithm. 
+- If a research claim combines a paper-code alignment assertion with a prior-work or external-background assertion, evaluate the paper-code alignment part separately. Do not downgrade the paper-code match solely because the external-background part cannot be verified from the code repository.
 - Anti-extrapolation:
   - Evaluate only the explicit content of the claim as written. Do not expand the claim into stronger implementation requirements unless those requirements are explicitly stated by the paper claim itself. If the mismatch depends on an inferred implementation expectation that is not explicitly stated in the claim or paper evidence, do not use `partial_matched` or `mismatch`.
 
@@ -130,3 +137,4 @@ A valid JSON file named claim_verify.json that is identical to the input JSON ex
     ]
   }
 }
+"""

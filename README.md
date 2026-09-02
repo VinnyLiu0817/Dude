@@ -59,6 +59,8 @@ Dude/
 
 ## ⚙️ Installation Requirements
 
+- **A supported agent platform**: Install and authenticate at least one of ChatGPT, Claude Code, or OpenCode before starting the workflow.
+
 - **jq**: Required for processing and manipulating JSON files. Install via:
   ```bash
   # macOS
@@ -67,6 +69,41 @@ Dude/
   # Linux
   sudo apt-get install jq
   ```
+
+
+### 1. Clone the Dude repository
+
+For a new installation, clone the repository and enter its root directory:
+
+```bash
+git clone https://github.com/VinnyLiu0817/Dude.git
+cd Dude
+```
+
+### 2. Copy the matching agents into the platform root
+
+Dude stores platform-specific agent definitions under `agents/`. Copy all the agent files (.md or .toml) that matches the platform you plan to use into that platform's `agents` directory. The commands below install the agents globally for the current user:
+
+| Platform | Dude source | Platform agent directory |
+| --- | --- | --- |
+| Codex | `agents/GPT/` | `~/.codex/agents/` |
+| Claude Code | `agents/Claude/` | `~/.claude/agents/` |
+| OpenCode | `agents/Kimi/` or `agents/Deepseek/` | `~/.config/opencode/agents/` |
+
+The platform agent directory should be installed by default if you successfully install the agent platform. Otherwise, you can manully creat the directory.
+
+```bash
+# Codex
+mkdir -p ~/.codex/agents
+
+# Claude Code
+mkdir -p ~/.claude/agents
+
+# OpenCode
+mkdir -p ~/.config/opencode/agents
+```
+
+If you want the agents to be available only in a particular project, copy them into that project's platform directory instead (for example, `<project-root>/.claude/agents/` or `<project-root>/.opencode/agents/`). 
 
 
 ## 💫 Quick Start

@@ -27,7 +27,8 @@
 
 - **[2026.08.28]** 🚩 **[Features Update]** We split the **Paper Claimer** Agent into two specialized agents: **Paper Claimer** and **Paper Searcher**. The former extracts claims from research papers, while the latter searches for external evidence to support those claims. This change helps prevent performance degradation caused by overly long contexts in a single agent.
 - **[2026.08.28]** 🚩 **[Features Update]** We split the **Code Verifier** Agent into two specialized agents: **Code Mapper** and **Code Verifier**. The former maps claims to the codespace, while the latter verifies the paper-code discrepancy. This change helps prevent performance degradation caused by overly long contexts in a single agent.
-- **[2025.08.20]** 🎉 **Dude is now open source!** The codebase includes the full implementation of the framework, configurations for mainstream agent platforms (ChatGPT, Claude Code, and OpenCode) as well as the prompts used by the system.
+- **[2026.08.21]** 🎉 **Dude is now open source!** The codebase includes the full implementation of the framework, configurations for mainstream agent platforms (ChatGPT, Claude Code, and OpenCode) as well as the prompts used by the system.
+- **[2026.08.20]** 🎉 **Dude has been accepted as a Main Conference paper in EMNLP 2026!** See you in Budapest 🇭🇺! 
 
 ## 🖼️ Project Structure
 

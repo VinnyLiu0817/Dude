@@ -2,6 +2,7 @@
 
   <img src="icon.png" alt="Dude icon" width="200">
    <h1 align="center">Dude: A Dual-Detection Multi-Agent System </br> for Paper-Code Discrepancy Detection </h1>
+   <a href='https://arxiv.org/abs/2609.03416'><img src='https://img.shields.io/badge/📄arXiv-2609.03416-ff6b6b?style=for-the-badge&logo=arxiv&logoColor=white&labelColor=1a1a2e'></a>
 
 ⭐️ **Automatically Detecting Paper-Code Inconsistencies** ⭐️
 
